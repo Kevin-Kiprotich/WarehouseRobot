@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-n)zu$k5*ggj6do)_eu@h_2=^h@v(&(9r5tcbh0-2lko@#@y@*b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.102']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -122,3 +122,18 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+    #    'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        #'rest_framework.authentication.SessionAuthentication',
+    ]
+}
+
+CORS_ORIGIN_WHITELIST = [
+     'http://localhost:3000','http://127.0.0.1:5500','http://127.0.0.1:8000'
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://127.0.0.1:5500','http://127.0.0.1:8000'
+]
